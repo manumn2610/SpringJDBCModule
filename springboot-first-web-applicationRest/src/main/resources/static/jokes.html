@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+	
+		Number of counts: <input type="number" id="num"></input> <br>
+
+		<button id="button">click</button>
+		<div id="output"></div>
+	
+</body>
+<script>
+	document.getElementById("button").addEventListener("click", loadJokes);
+
+	function loadJokes() {
+		alert("HI");
+		request = new XMLHttpRequest();
+		
+		const numofjokes=document.getElementById("num").value;
+		alert(numofjokes);
+		alert("http://api.icndb.com/jokes/random/"+numofjokes+"");
+
+		/* request
+				.open(
+						"GET",
+						"https://cors-anywhere.herokuapp.com/https://joke-api-strict-cors.appspot.com/jokes/random",
+						true); */
+		request
+				.open(
+						"GET",
+						"http://api.icndb.com/jokes/random/"+numofjokes+"",
+						true);
+
+		request.onload = function() {
+
+			if (this.status == 200) {
+				document.getElementById("output").innerHTML = this.responseText;
+
+			}
+
+		}
+
+		request.send();
+
+	}
+</script>
+</html>
