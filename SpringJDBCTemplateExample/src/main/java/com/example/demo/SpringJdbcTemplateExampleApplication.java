@@ -12,5 +12,6 @@ public class SpringJdbcTemplateExampleApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcTemplateExampleApplication.class, args);
 		System.out.println("Pushed to Git hub");
+		System.out.println("Added another Change in the Application.java file");
 	}
 }
